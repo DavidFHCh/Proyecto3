@@ -139,7 +139,7 @@ BEGIN
             RETURN;
         END IF;
         BEGIN
-            INSERT INTO usuarios(corre, password, nombre, facultad, carrera, generacion, tipo) VALUES (c, p, n, f, ca, g, t);
+            INSERT INTO usuarios(correo, password, nombre, facultad, carrera, generacion, tipo) VALUES (c, p, n, f, ca, g, t);
             RETURN;
         EXCEPTION WHEN unique_violation THEN
         END;
@@ -612,7 +612,7 @@ COPY libros (id_libro, codigo, titulo, autor) FROM stdin;
 -- Name: libros_id_libro_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('libros_id_libro_seq', 1, false);
+SELECT pg_catalog.setval('libros_id_libro_seq', 8, true);
 
 
 --
