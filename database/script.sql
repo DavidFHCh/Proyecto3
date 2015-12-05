@@ -1,3 +1,10 @@
+DELETE FROM se_imparte_para;
+DELETE FROM materias;
+DELETE FROM carreras;
+DELETE FROM usuarios;
+DELETE FROM facultades;
+DELETE FROM libros;
+
 SELECT merge_facultades(001, 'Facultad de Arquitectura');
 SELECT merge_facultades(002, 'Facultad de Artes y Diseño');
 SELECT merge_facultades(003, 'Facultad de Ciencias');
@@ -44,5 +51,21 @@ SELECT merge_usuarios(2, 'otrocorreo@ciencias.unam.mx', 'ATfAethCv', 'Stephen Wi
 SELECT merge_usuarios(3, 'lol@ciencias.unam.mx', 'AsErEjEjAdEjE', 'Charles Robert Darwin', 3, 201, 1827, 3);
 SELECT merge_usuarios(4, 'yo@ciencias.unam.mx', 'mipassword', 'Mi Nombre', 3, 104, 2015, 1);
 
-
-
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like '%Superior I'), (SELECT clave FROM carreras WHERE nombre like '%Compu%'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like '%Superior I'), (SELECT clave FROM carreras WHERE nombre like 'Act%'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like '%Superior I'), (SELECT clave FROM carreras WHERE nombre like 'Mate%'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like '%Discretas'), (SELECT clave FROM carreras WHERE nombre like '%Compu%'));
+INSERT INTO se_imparte_para VALUES(1124, (SELECT clave FROM carreras WHERE nombre like '%Compu%'));
+INSERT INTO se_imparte_para VALUES(1135, (SELECT clave FROM carreras WHERE nombre like '%Act%'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre = 'Introducción a las Ciencias de la Computación'), (SELECT clave FROM carreras WHERE nombre like'%Compu%'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre = 'Matemáticas para las Ciencias Aplicadas'), (SELECT clave FROM carreras WHERE nombre like '%Compu%'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like '%Superior II'), (SELECT clave FROM carreras WHERE nombre like '%Compu%'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like '%Superior II'), (SELECT clave FROM carreras WHERE nombre like 'Act%'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like '%Superior II'), (SELECT clave FROM carreras WHERE nombre like 'Mate%'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like '%Diferencial e Integral I'), (SELECT clave FROM carreras WHERE nombre like 'Act%'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like '%Diferencial e Integral I'), (SELECT clave FROM carreras WHERE nombre like 'Mate%'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like '%Diferencial e Integral I'), (SELECT clave FROM carreras WHERE nombre like 'Física'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like 'Geometría Analítica I'), (SELECT clave FROM carreras WHERE nombre like 'Act%'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like 'Geometría Analítica I'), (SELECT clave FROM carreras WHERE nombre like 'Mate%'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like 'Geometría Analítica I'), (SELECT clave FROM carreras WHERE nombre like 'Física'));
+INSERT INTO se_imparte_para VALUES((SELECT clave FROM materias WHERE nombre like 'Teoría del Seguro'), (SELECT clave FROM carreras WHERE nombre like 'Act%'));
