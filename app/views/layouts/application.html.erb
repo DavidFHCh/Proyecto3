@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Librosciencias</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Librosciencias</title>
+    <%= stylesheet_link_tag "w3" %>
+    <%= stylesheet_link_tag "w3-theme-cyan" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <style>
+    </style>
+  </head>
+  <body>
+    <div class="w3-topnav w3-large w3-theme">
+      <a href="javascript:void(0)"><i class="fa fa-home w3-xlarge">lol</i></a>
+      <a href="javascript:void(0)">Link 1</a>   <!-por si se usan estos o mas links->
+      <a href="javascript:void(0)">Link 2</a>
+      <a href="javascript:void(0)">Link 3</a>
+      <a href="javascript:void(0)">Link 4</a>
+      <a href="javascript:void(0)" class="w3-right">Iniciar Sesión</a> <a href="javascript:void(0)" class="w3-right">Cerrar Sesión</a>
+    </div>
+    
+    <%= yield %>
+    
+    <footer class="w3-container w3-theme-dark">
+      <p class="w3-text-white-opacity">El incio de sesión esta powered by Google.</p>
+    </footer>
+  </body>
 </html>
