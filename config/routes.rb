@@ -1,4 +1,40 @@
 Librosciencias::Application.routes.draw do
+  resources :usuarios
+
+
+  resources :se_recomienda_paras
+
+
+  resources :se_imparte_paras
+
+
+  resources :reporte_links
+
+
+  resources :recomendacion_links
+
+
+  resources :recomendacion_libros
+
+
+  resources :materia
+
+
+  resources :material_recomendados
+
+
+  resources :links
+
+
+  resources :libros
+
+
+  resources :facultades
+
+
+  resources :carreras
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

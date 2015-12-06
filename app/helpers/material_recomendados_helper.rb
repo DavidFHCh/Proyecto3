@@ -1,0 +1,2 @@
+module MaterialRecomendadosHelper
+end

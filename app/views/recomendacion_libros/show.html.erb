@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Titulo:</b>
+  <%= @recomendacion_libro.titulo %>
+</p>
+
+<p>
+  <b>Autor:</b>
+  <%= @recomendacion_libro.autor %>
+</p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @recomendacion_libro.usuario %>
+</p>
+
+<p>
+  <b>Clave materia:</b>
+  <%= @recomendacion_libro.clave_materia %>
+</p>
+
+
+<%= link_to 'Edit', edit_recomendacion_libro_path(@recomendacion_libro) %> |
+<%= link_to 'Back', recomendacion_libros_path %>

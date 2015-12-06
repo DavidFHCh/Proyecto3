@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  clave_materia: 1
+  link: 1
+
+two:
+  clave_materia: 1
+  link: 1

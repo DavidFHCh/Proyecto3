@@ -1,0 +1,25 @@
+<%= form_for(@se_imparte_para) do |f| %>
+  <% if @se_imparte_para.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@se_imparte_para.errors.count, "error") %> prohibited this se_imparte_para from being saved:</h2>
+
+      <ul>
+      <% @se_imparte_para.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :clave_materia %><br />
+    <%= f.number_field :clave_materia %>
+  </div>
+  <div class="field">
+    <%= f.label :clave_carrera %><br />
+    <%= f.number_field :clave_carrera %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

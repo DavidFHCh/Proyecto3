@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Libro:</b>
+  <%= @se_recomienda_para.libro %>
+</p>
+
+<p>
+  <b>Clave materia:</b>
+  <%= @se_recomienda_para.clave_materia %>
+</p>
+
+<p>
+  <b>Recomendaciones:</b>
+  <%= @se_recomienda_para.recomendaciones %>
+</p>
+
+<p>
+  <b>Votos:</b>
+  <%= @se_recomienda_para.votos %>
+</p>
+
+
+<%= link_to 'Edit', edit_se_recomienda_para_path(@se_recomienda_para) %> |
+<%= link_to 'Back', se_recomienda_paras_path %>

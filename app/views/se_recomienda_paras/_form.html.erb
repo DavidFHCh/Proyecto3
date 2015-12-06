@@ -1,0 +1,33 @@
+<%= form_for(@se_recomienda_para) do |f| %>
+  <% if @se_recomienda_para.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@se_recomienda_para.errors.count, "error") %> prohibited this se_recomienda_para from being saved:</h2>
+
+      <ul>
+      <% @se_recomienda_para.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :libro %><br />
+    <%= f.number_field :libro %>
+  </div>
+  <div class="field">
+    <%= f.label :clave_materia %><br />
+    <%= f.number_field :clave_materia %>
+  </div>
+  <div class="field">
+    <%= f.label :recomendaciones %><br />
+    <%= f.number_field :recomendaciones %>
+  </div>
+  <div class="field">
+    <%= f.label :votos %><br />
+    <%= f.number_field :votos %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

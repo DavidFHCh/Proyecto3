@@ -1,0 +1,29 @@
+<h1>Listing recomendacion_libros</h1>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Autor</th>
+    <th>Usuario</th>
+    <th>Clave materia</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @recomendacion_libros.each do |recomendacion_libro| %>
+  <tr>
+    <td><%= recomendacion_libro.titulo %></td>
+    <td><%= recomendacion_libro.autor %></td>
+    <td><%= recomendacion_libro.usuario %></td>
+    <td><%= recomendacion_libro.clave_materia %></td>
+    <td><%= link_to 'Show', recomendacion_libro %></td>
+    <td><%= link_to 'Edit', edit_recomendacion_libro_path(recomendacion_libro) %></td>
+    <td><%= link_to 'Destroy', recomendacion_libro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Recomendacion libro', new_recomendacion_libro_path %>

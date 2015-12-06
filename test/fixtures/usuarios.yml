@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  correo: MyText
+  password: MyText
+  nombre: MyText
+  facultad: 1
+  carrera: 1
+  generacion: 1
+  tipo: 1
+
+two:
+  correo: MyText
+  password: MyText
+  nombre: MyText
+  facultad: 1
+  carrera: 1
+  generacion: 1
+  tipo: 1

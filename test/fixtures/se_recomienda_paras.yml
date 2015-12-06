@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  libro: 1
+  clave_materia: 1
+  recomendaciones: 1
+  votos: 1
+
+two:
+  libro: 1
+  clave_materia: 1
+  recomendaciones: 1
+  votos: 1

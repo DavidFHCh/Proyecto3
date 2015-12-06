@@ -1,0 +1,2 @@
+module ReporteLinksHelper
+end

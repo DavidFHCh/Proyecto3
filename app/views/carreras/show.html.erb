@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @carrera.nombre %>
+</p>
+
+<p>
+  <b>Semestres:</b>
+  <%= @carrera.semestres %>
+</p>
+
+<p>
+  <b>Facultad:</b>
+  <%= @carrera.facultad %>
+</p>
+
+
+<%= link_to 'Edit', edit_carrera_path(@carrera) %> |
+<%= link_to 'Back', carreras_path %>

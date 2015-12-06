@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Clave materia:</b>
+  <%= @se_imparte_para.clave_materia %>
+</p>
+
+<p>
+  <b>Clave carrera:</b>
+  <%= @se_imparte_para.clave_carrera %>
+</p>
+
+
+<%= link_to 'Edit', edit_se_imparte_para_path(@se_imparte_para) %> |
+<%= link_to 'Back', se_imparte_paras_path %>

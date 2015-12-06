@@ -1,0 +1,29 @@
+<h1>Listing se_recomienda_paras</h1>
+
+<table>
+  <tr>
+    <th>Libro</th>
+    <th>Clave materia</th>
+    <th>Recomendaciones</th>
+    <th>Votos</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @se_recomienda_paras.each do |se_recomienda_para| %>
+  <tr>
+    <td><%= se_recomienda_para.libro %></td>
+    <td><%= se_recomienda_para.clave_materia %></td>
+    <td><%= se_recomienda_para.recomendaciones %></td>
+    <td><%= se_recomienda_para.votos %></td>
+    <td><%= link_to 'Show', se_recomienda_para %></td>
+    <td><%= link_to 'Edit', edit_se_recomienda_para_path(se_recomienda_para) %></td>
+    <td><%= link_to 'Destroy', se_recomienda_para, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Se recomienda para', new_se_recomienda_para_path %>
