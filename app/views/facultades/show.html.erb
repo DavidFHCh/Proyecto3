@@ -1,10 +1,36 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Nombre:</b>
-  <%= @facultade.nombre %>
-</p>
-
-
-<%= link_to 'Edit', edit_facultade_path(@facultade) %> |
-<%= link_to 'Back', facultades_path %>
+<br><br><br><br>
+<% if @carreras.nil? %>
+<p>No has carreras para <%= @title %></p>
+<% else %>
+<div class="w3-row-padding">
+  <div class="w3-half">
+    <div class="w3-card white">
+      <div class="w3-container w3-red">
+	<h1>Carreras</h1>
+      </div>
+      <ul class="w3-ul w3-border-top">
+	<% @carreras.each do |carrera| %>
+	<li>
+	  <%= link_to carrera.nombre, carrera %>
+	</li>
+	<% end %>	
+      </ul>
+    </div>
+  </div>
+  <br>
+<% end %>
+  
+  <div class="w3-half">
+    <div class="w3-right">
+      <form>
+        <input class="w3-input" type="text" required>
+        <br>
+        <div class="w3-center">
+          <button class="w3-btn w3-theme">Buscar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+</div>
+<br> <br> <br>

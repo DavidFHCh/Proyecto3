@@ -1,27 +1,47 @@
-<h1>Listing libros</h1>
+<br><br><br><br>
+<div class="w3-row-padding">
+  <div class="w3-half">
+    <div class="w3-card white">
+      <div class="w3-container w3-red">
+	<h1>Libros</h1>
+      </div>
+      <ul class="w3-ul w3-border-top">
+	<% @libros.each do |libro| %>
+	<li>
+	  <%= link_to libro.titulo, '#', onclick: "document.getElementById('id01').style.display='block'" %>
+	</li>
+	<% end %>	
+      </ul>
+    </div>
+  </div>
+  <br>
+  
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-red"> 
+	<span onclick="document.getElementById('id01').style.display='none'" 
+	      class="w3-closebtn">×</span>
+	<h2>Información</h2>
+      </header>
+      <div class="w3-container">
+	<p><strong>Título: </strong>libro.titulo</p>
+	<p><strong>Autor: </strong>libro.autor</p>
+	<p><strong>ISBN: </strong>libro.isbn</p>
+      </div>
+      <div class="w3-center">
+        <button class="w3-btn w3-blue">Like</button>
+      </div>
+      <br>
+      <div class="w3-center">
+        <button class="w3-btn w3-blue">Dislike</button>
+      </div>
+      <br>
+      <footer class="w3-container w3-red">
+	<p>Modal Footer</p>
+      </footer>
+    </div>
+  </div>
 
-<table>
-  <tr>
-    <th>Codigo</th>
-    <th>Titulo</th>
-    <th>Autor</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @libros.each do |libro| %>
-  <tr>
-    <td><%= libro.codigo %></td>
-    <td><%= libro.titulo %></td>
-    <td><%= libro.autor %></td>
-    <td><%= link_to 'Show', libro %></td>
-    <td><%= link_to 'Edit', edit_libro_path(libro) %></td>
-    <td><%= link_to 'Destroy', libro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Libro', new_libro_path %>
+  <%= render 'layouts/searchbox' %>
+</div>
+<br> <br> <br>
