@@ -2,6 +2,7 @@ class FacultadesController < ApplicationController
   # GET /facultades
   # GET /facultades.json
   def index
+    @title = "Facultades"
     @facultades = Facultade.all
 
     respond_to do |format|
@@ -14,6 +15,7 @@ class FacultadesController < ApplicationController
   # GET /facultades/1.json
   def show
     @facultade = Facultade.find(params[:id])
+    @title = @facultade.nombre
 
     respond_to do |format|
       format.html # show.html.erb

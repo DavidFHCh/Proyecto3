@@ -2,6 +2,7 @@ class CarrerasController < ApplicationController
   # GET /carreras
   # GET /carreras.json
   def index
+    @title = "Carreras"
     @carreras = Carrera.all
 
     respond_to do |format|
@@ -14,6 +15,7 @@ class CarrerasController < ApplicationController
   # GET /carreras/1.json
   def show
     @carrera = Carrera.find(params[:id])
+    @title = @carrera.nombre
 
     respond_to do |format|
       format.html # show.html.erb
