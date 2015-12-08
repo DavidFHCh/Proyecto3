@@ -1,10 +1,6 @@
 <div class="w3-topnav w3-large w3-theme">
-  <%= link_to "Inicio", root_path, class: "fa fa-home w3-xlarge" %>
-  <!--<a href="javascript:void(0)"><i class="fa fa-home w3-xlarge">lol</i></a>-->										      <%= link_to "Facultades", facultades_path %>
-  <!--<a href="javascript:void(0)">Link 1</a>   <!-por si se usan estos o mas links->-->
+  <%= link_to "Inicio", '#', class: "fa fa-home w3-xlarge" %>
+  <%= link_to "Facultades", facultades_path %>
   <%= link_to "Carreras", carreras_path %>
-  <!--<a href="javascript:void(0)">Link 2</a>
-      <a href="javascript:void(0)">Link 3</a>
-      <a href="javascript:void(0)">Link 4</a>-->
-  <a href="javascript:void(0)" class="w3-right">Iniciar Sesión</a> <a href="javascript:void(0)" class="w3-right">Cerrar Sesión</a>
+  <%= link_to "Iniciar Sesión", '#', class: "w3-right" %> <%= link_to "Cerrar Sesión", '#', class: "w3-right" %>
 </div>
