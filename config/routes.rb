@@ -1,4 +1,11 @@
 Librosciencias::Application.routes.draw do
+  #Google authentication
+  root to: 'home#show'
+  get 'auth/:provider/callback' => 'sessions#create'
+  get 'auth/failure' => redirect(root_path)
+  get 'signout' => 'sessions#destroy', as: 'signout'
+  resources :sessions, only: [:create, :destroy]
+  resources :home, only: [:show]
   resources :usuarios
 
 

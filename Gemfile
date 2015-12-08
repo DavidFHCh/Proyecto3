@@ -5,9 +5,14 @@ gem 'rails', '3.2.16'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# PostgreSQL
 gem 'pg'
+# Javascript interpreter
 gem 'therubyracer'
+# Passenger gem for Apache Server
 gem 'passenger'
+# Google authentication gem
+gem 'omniauth-google-oauth2', '~> 0.2.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
