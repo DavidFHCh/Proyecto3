@@ -16,3 +16,6 @@
 
 # Ignore Emacs files
 **/*~
+
+# Database config
+config/database.yml
