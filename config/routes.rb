@@ -7,6 +7,7 @@ Librosciencias::Application.routes.draw do
   resources :home, only: [:show]
 
   root to: 'home#show'
+  get 'about', to: 'about#show', as: 'about'
 
   resources :usuarios
 

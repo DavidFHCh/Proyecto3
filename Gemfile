@@ -12,7 +12,11 @@ gem 'therubyracer'
 # Passenger gem for Apache Server
 gem 'passenger'
 # Google authentication gem
-gem 'omniauth-google-oauth2', '~> 0.2.1'
+gem 'omniauth', '~> 1.2.2'
+gem 'omniauth-google-oauth2'
+
+gem 'json'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

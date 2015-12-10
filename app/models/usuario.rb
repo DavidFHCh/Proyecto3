@@ -11,4 +11,5 @@ class Usuario < ActiveRecord::Base
       user.correo = auth.info.email
       user.save!
     end
+  end
 end

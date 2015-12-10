@@ -133,7 +133,9 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
-  omniauth-google-oauth2 (~> 0.2.1)
+  json
+  omniauth (~> 1.2.2)
+  omniauth-google-oauth2
   passenger
   pg
   rails (= 3.2.16)
