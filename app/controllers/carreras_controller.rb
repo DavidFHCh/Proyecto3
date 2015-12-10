@@ -16,6 +16,11 @@ class CarrerasController < ApplicationController
   def show
     @carrera = Carrera.find(params[:id])
     @title = @carrera.nombre
+    @sip = SeImpartePara.where(clave_carrera: @carrera.id)
+    @materias = []
+    @sip.each do |sip|
+      @materias << sip.materium
+    end
 
     respond_to do |format|
       format.html # show.html.erb

@@ -2,6 +2,7 @@ class MateriaController < ApplicationController
   # GET /materia
   # GET /materia.json
   def index
+    @title = "Materias"
     @materia = Materium.all
 
     respond_to do |format|
@@ -14,6 +15,7 @@ class MateriaController < ApplicationController
   # GET /materia/1.json
   def show
     @materium = Materium.find(params[:id])
+    @title = @materium.nombre
 
     respond_to do |format|
       format.html # show.html.erb
