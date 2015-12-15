@@ -16,6 +16,7 @@ class MateriaController < ApplicationController
   def show
     @materium = Materium.find(params[:id])
     @title = @materium.nombre
+    @libros = @materium.libros
 
     respond_to do |format|
       format.html # show.html.erb

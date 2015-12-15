@@ -16,7 +16,7 @@ class FacultadesController < ApplicationController
   def show
     @facultade = Facultade.find(params[:id])
     @title = @facultade.nombre
-    @carreras = Carrera.where(facultad: @facultade.id)
+    @carreras = @facultade.carreras
     
     respond_to do |format|
       format.html # show.html.erb
