@@ -1,77 +1,51 @@
 class CarrerasController < ApplicationController
+  before_action :set_carrera, only: [:show, :edit, :update, :destroy]
+
   # GET /carreras
   # GET /carreras.json
   def index
-    @title = "Carreras"
     @carreras = Carrera.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @carreras }
-    end
   end
 
   # GET /carreras/1
   # GET /carreras/1.json
   def show
-    @carrera = Carrera.find(params[:id])
-    @title = @carrera.nombre
-    @materias = @carrera.materias
-#    sips = SeImpartePara.where(clave_carrera: @carrera.id)
-#    @materias = []
-#    sips.each do |sip|
-#      @materias << sip.materium
-#    end
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @carrera }
-    end
   end
 
   # GET /carreras/new
-  # GET /carreras/new.json
   def new
     @carrera = Carrera.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @carrera }
-    end
   end
 
   # GET /carreras/1/edit
   def edit
-    @carrera = Carrera.find(params[:id])
   end
 
   # POST /carreras
   # POST /carreras.json
   def create
-    @carrera = Carrera.new(params[:carrera])
+    @carrera = Carrera.new(carrera_params)
 
     respond_to do |format|
       if @carrera.save
         format.html { redirect_to @carrera, notice: 'Carrera was successfully created.' }
-        format.json { render json: @carrera, status: :created, location: @carrera }
+        format.json { render :show, status: :created, location: @carrera }
       else
-        format.html { render action: "new" }
+        format.html { render :new }
         format.json { render json: @carrera.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /carreras/1
-  # PUT /carreras/1.json
+  # PATCH/PUT /carreras/1
+  # PATCH/PUT /carreras/1.json
   def update
-    @carrera = Carrera.find(params[:id])
-
     respond_to do |format|
-      if @carrera.update_attributes(params[:carrera])
+      if @carrera.update(carrera_params)
         format.html { redirect_to @carrera, notice: 'Carrera was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render :show, status: :ok, location: @carrera }
       else
-        format.html { render action: "edit" }
+        format.html { render :edit }
         format.json { render json: @carrera.errors, status: :unprocessable_entity }
       end
     end
@@ -80,12 +54,21 @@ class CarrerasController < ApplicationController
   # DELETE /carreras/1
   # DELETE /carreras/1.json
   def destroy
-    @carrera = Carrera.find(params[:id])
     @carrera.destroy
-
     respond_to do |format|
-      format.html { redirect_to carreras_url }
+      format.html { redirect_to carreras_url, notice: 'Carrera was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_carrera
+      @carrera = Carrera.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def carrera_params
+      params.require(:carrera).permit(:nombre, :semestres, :facultad)
+    end
 end

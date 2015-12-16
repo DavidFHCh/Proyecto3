@@ -1,72 +1,51 @@
 class FacultadesController < ApplicationController
+  before_action :set_facultade, only: [:show, :edit, :update, :destroy]
+
   # GET /facultades
   # GET /facultades.json
   def index
-    @title = "Facultades"
     @facultades = Facultade.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @facultades }
-    end
   end
 
   # GET /facultades/1
   # GET /facultades/1.json
   def show
-    @facultade = Facultade.find(params[:id])
-    @title = @facultade.nombre
-    @carreras = @facultade.carreras
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @facultade }
-    end
   end
 
   # GET /facultades/new
-  # GET /facultades/new.json
   def new
     @facultade = Facultade.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @facultade }
-    end
   end
 
   # GET /facultades/1/edit
   def edit
-    @facultade = Facultade.find(params[:id])
   end
 
   # POST /facultades
   # POST /facultades.json
   def create
-    @facultade = Facultade.new(params[:facultade])
+    @facultade = Facultade.new(facultade_params)
 
     respond_to do |format|
       if @facultade.save
         format.html { redirect_to @facultade, notice: 'Facultade was successfully created.' }
-        format.json { render json: @facultade, status: :created, location: @facultade }
+        format.json { render :show, status: :created, location: @facultade }
       else
-        format.html { render action: "new" }
+        format.html { render :new }
         format.json { render json: @facultade.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /facultades/1
-  # PUT /facultades/1.json
+  # PATCH/PUT /facultades/1
+  # PATCH/PUT /facultades/1.json
   def update
-    @facultade = Facultade.find(params[:id])
-
     respond_to do |format|
-      if @facultade.update_attributes(params[:facultade])
+      if @facultade.update(facultade_params)
         format.html { redirect_to @facultade, notice: 'Facultade was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render :show, status: :ok, location: @facultade }
       else
-        format.html { render action: "edit" }
+        format.html { render :edit }
         format.json { render json: @facultade.errors, status: :unprocessable_entity }
       end
     end
@@ -75,12 +54,21 @@ class FacultadesController < ApplicationController
   # DELETE /facultades/1
   # DELETE /facultades/1.json
   def destroy
-    @facultade = Facultade.find(params[:id])
     @facultade.destroy
-
     respond_to do |format|
-      format.html { redirect_to facultades_url }
+      format.html { redirect_to facultades_url, notice: 'Facultade was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_facultade
+      @facultade = Facultade.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def facultade_params
+      params.require(:facultade).permit(:nombre)
+    end
 end

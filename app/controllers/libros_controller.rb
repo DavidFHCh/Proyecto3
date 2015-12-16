@@ -1,71 +1,51 @@
 class LibrosController < ApplicationController
+  before_action :set_libro, only: [:show, :edit, :update, :destroy]
+
   # GET /libros
   # GET /libros.json
   def index
-    @title = "Libros"
     @libros = Libro.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @libros }
-    end
   end
 
   # GET /libros/1
   # GET /libros/1.json
   def show
-    @libro = Libro.find(params[:id])
-    @title = @libro.titulo
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @libro }
-    end
   end
 
   # GET /libros/new
-  # GET /libros/new.json
   def new
     @libro = Libro.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @libro }
-    end
   end
 
   # GET /libros/1/edit
   def edit
-    @libro = Libro.find(params[:id])
   end
 
   # POST /libros
   # POST /libros.json
   def create
-    @libro = Libro.new(params[:libro])
+    @libro = Libro.new(libro_params)
 
     respond_to do |format|
       if @libro.save
         format.html { redirect_to @libro, notice: 'Libro was successfully created.' }
-        format.json { render json: @libro, status: :created, location: @libro }
+        format.json { render :show, status: :created, location: @libro }
       else
-        format.html { render action: "new" }
+        format.html { render :new }
         format.json { render json: @libro.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /libros/1
-  # PUT /libros/1.json
+  # PATCH/PUT /libros/1
+  # PATCH/PUT /libros/1.json
   def update
-    @libro = Libro.find(params[:id])
-
     respond_to do |format|
-      if @libro.update_attributes(params[:libro])
+      if @libro.update(libro_params)
         format.html { redirect_to @libro, notice: 'Libro was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render :show, status: :ok, location: @libro }
       else
-        format.html { render action: "edit" }
+        format.html { render :edit }
         format.json { render json: @libro.errors, status: :unprocessable_entity }
       end
     end
@@ -74,12 +54,21 @@ class LibrosController < ApplicationController
   # DELETE /libros/1
   # DELETE /libros/1.json
   def destroy
-    @libro = Libro.find(params[:id])
     @libro.destroy
-
     respond_to do |format|
-      format.html { redirect_to libros_url }
+      format.html { redirect_to libros_url, notice: 'Libro was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_libro
+      @libro = Libro.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def libro_params
+      params.require(:libro).permit(:codigo, :titulo, :autor)
+    end
 end
