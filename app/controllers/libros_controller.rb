@@ -4,12 +4,14 @@ class LibrosController < ApplicationController
   # GET /libros
   # GET /libros.json
   def index
+    @title = "Libros"
     @libros = Libro.all
   end
 
   # GET /libros/1
   # GET /libros/1.json
   def show
+    @title = @libro.titulo
   end
 
   # GET /libros/new

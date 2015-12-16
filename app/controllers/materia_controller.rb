@@ -4,12 +4,14 @@ class MateriaController < ApplicationController
   # GET /materia
   # GET /materia.json
   def index
+    @title = "Materias"
     @materia = Materium.all
   end
 
   # GET /materia/1
   # GET /materia/1.json
   def show
+    @title = @materium.nombre
   end
 
   # GET /materia/new

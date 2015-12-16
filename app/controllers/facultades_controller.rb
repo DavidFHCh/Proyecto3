@@ -4,12 +4,14 @@ class FacultadesController < ApplicationController
   # GET /facultades
   # GET /facultades.json
   def index
+    @title = "Facultades"
     @facultades = Facultade.all
   end
 
   # GET /facultades/1
   # GET /facultades/1.json
   def show
+    @title = @facultade.nombre
   end
 
   # GET /facultades/new

@@ -4,12 +4,19 @@ class CarrerasController < ApplicationController
   # GET /carreras
   # GET /carreras.json
   def index
+    @title = "Carreras"
     @carreras = Carrera.all
   end
 
   # GET /carreras/1
   # GET /carreras/1.json
   def show
+    @title = @carrera.nombre
+#    sips = SeImpartePara.where(clave_carrera: @carrera.id)
+#    @materias = []
+#    sips.each do |sip|
+#      @materias << sip.materium
+#    end
   end
 
   # GET /carreras/new

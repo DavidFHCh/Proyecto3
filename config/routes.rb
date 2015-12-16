@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  #Google authentication
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+  resources :sessions, only: [:create, :destroy]
+  resources :home, only: [:show]
+
+  root to: 'home#show'
+  get 'about', to: 'about#show', as: 'about'
+  
   resources :usuarios
   resources :se_recomienda_paras
   resources :se_imparte_paras
