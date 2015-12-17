@@ -10,11 +10,11 @@ class Usuario < ActiveRecord::Base
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.correo = auth.info.email
-      #user.facultad = 3
-      #user.tipo = 0
-      #user.generacion = 0
-      #user.carrera = 0
-      #user.password = ""
+      user.facultad = 3
+      user.tipo = 0
+      user.generacion = 0
+      user.carrera = Carrera.find(104)
+      user.password = ""
       user.save!
     end
   end

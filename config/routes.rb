@@ -8,19 +8,27 @@ Rails.application.routes.draw do
 
   root to: 'home#show'
   get 'about', to: 'about#show', as: 'about'
+  get 'facultades', to: 'facultades#index', as: 'facultades'
+  get 'facultades/:id', to: 'facultades#show', as: 'facultade'
+  get 'carreras', to: 'carreras#index', as: 'carreras'
+  get 'carreras/:id', to: 'carreras#show', as: 'carrera'
+  get 'materias', to: 'materia#index', as: 'materias'
+  get 'materias/:id', to: 'materia#show', as: 'materium'
+  get 'libros', to: 'libros#index', as: 'libros'
+  get 'libros/:id', to: 'libros#show', as: 'libro'
   
-  resources :usuarios
-  resources :se_recomienda_paras
-  resources :se_imparte_paras
-  resources :reporte_links
-  resources :recomendacion_links
-  resources :recomendacion_libros
-  resources :materia
-  resources :material_recomendados
-  resources :links
-  resources :libros
-  resources :facultades
-  resources :carreras
+  #resources :usuarios
+  #resources :se_recomienda_paras
+  #resources :se_imparte_paras
+  #resources :reporte_links
+  #resources :recomendacion_links
+  #resources :recomendacion_libros
+  #resources :materia
+  #resources :material_recomendados
+  #resources :links
+  #resources :libros
+  #resources :facultades
+  #resources :carreras
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

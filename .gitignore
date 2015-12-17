@@ -19,3 +19,6 @@
 
 # Database config
 config/database.yml
+
+# ISBNdb config file
+config/isbndb.yml

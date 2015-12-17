@@ -12,6 +12,7 @@ class FacultadesController < ApplicationController
   # GET /facultades/1.json
   def show
     @title = @facultade.nombre
+    @carreras = Carrera.where(facultad: @facultade.id)
   end
 
   # GET /facultades/new

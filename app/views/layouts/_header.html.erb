@@ -4,7 +4,7 @@
     <%= link_to "Facultades", facultades_path %>
     <%= link_to "Carreras", carreras_path %>
     <%= link_to "Libros", libros_path %>
-    <%= link_to "Materias", materia_path %>
+    <%= link_to "Materias", materias_path %>
     <% if current_user %>
     <p class="w3-right">¡Hola <strong><%= current_user.nombre %></strong>!</p>
     <%= link_to "Cerrar Sesión", signout_path, id: "sign_out", class: "w3-right" %>

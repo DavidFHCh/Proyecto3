@@ -12,6 +12,7 @@ class LibrosController < ApplicationController
   # GET /libros/1.json
   def show
     @title = @libro.titulo
+    @libro_isbn = ISBNdb::Query.find_book_by_isbn(@libro.codigo).first
   end
 
   # GET /libros/new
