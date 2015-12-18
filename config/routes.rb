@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'materias/:id', to: 'materia#show', as: 'materium'
   get 'libros', to: 'libros#index', as: 'libros'
   get 'libros/:id', to: 'libros#show', as: 'libro'
+  get 'info', to: 'info#ask', as: 'info'
   
   #resources :usuarios
   #resources :se_recomienda_paras

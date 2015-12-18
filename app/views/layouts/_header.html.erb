@@ -1,15 +1,17 @@
 <header class="w3-container w3-theme" id="header">
   <div class="w3-topnav w3-large w3-theme">
-    <%= link_to "Inicio", root_path, class: "fa fa-home w3-xlarge" %>
+    <i class="fa fa-home w3-xlarge"><%= link_to "Inicio", root_path %><i>
     <%= link_to "Facultades", facultades_path %>
     <%= link_to "Carreras", carreras_path %>
     <%= link_to "Libros", libros_path %>
     <%= link_to "Materias", materias_path %>
     <% if current_user %>
-    <p class="w3-right">¡Hola <strong><%= current_user.nombre %></strong>!</p>
-    <%= link_to "Cerrar Sesión", signout_path, id: "sign_out", class: "w3-right" %>
+    <%= link_to "Cerrar Sesión", signout_path, class: "w3-right" %>
+    <div class="w3-right">
+      ¡Hola <strong><%= current_user.nombre %></strong>!
+    </div>
     <% else %>
-    <%= link_to "Iniciar Sesión", "/auth/google_oauth2", id: "sign_in", class: "w3-right" %>
+    <%= link_to "Iniciar Sesión", "/auth/google_oauth2", class: "w3-right" %>
     <% end %>
   </div>
   <% if @header %>

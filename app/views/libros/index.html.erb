@@ -7,19 +7,23 @@
       </div>
       <ul class="w3-ul w3-border-top">
 	<% @libros.each do |libro| %>
+	<% i = 1 %>
 	<li>
-	  <%= link_to libro.titulo, '#', onclick: "document.getElementById('id01').style.display='block'" %>
+	  <%= link_to libro.titulo, '#', onclick: "document.getElementById('id<%= i %>').style.display='block'" %>
 	</li>
+	<% i += 1 %>
 	<% end %>	
       </ul>
     </div>
   </div>
   <br>
-  
-  <div id="id01" class="w3-modal">
+
+  <% @libros.each do |libro| %>
+  <% i = 1 %>
+  <div id="id<%= i %>" class="w3-modal">
     <div class="w3-modal-content">
       <header class="w3-container w3-red"> 
-	<span onclick="document.getElementById('id01').style.display='none'" 
+	<span onclick="document.getElementById('id<%= i %>').style.display='none'" 
 	      class="w3-closebtn">×</span>
 	<h2>Información</h2>
       </header>
@@ -28,6 +32,7 @@
 	<p><strong>Autor: </strong>libro.autor</p>
 	<p><strong>ISBN: </strong>libro.isbn</p>
       </div>
+      <% if current_user %>
       <div class="w3-center">
         <button class="w3-btn w3-blue">Like</button>
       </div>
@@ -35,13 +40,16 @@
       <div class="w3-center">
         <button class="w3-btn w3-blue">Dislike</button>
       </div>
+      <% end %>
       <br>
       <footer class="w3-container w3-red">
-	<p>Modal Footer</p>
+	<p>&nbsp;</p>
       </footer>
     </div>
   </div>
-
+  <% i += 1 %>
+  <% end %>
+  
   <%= render 'layouts/searchbox' %>
 </div>
 <br> <br> <br>

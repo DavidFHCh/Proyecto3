@@ -18,4 +18,13 @@ class Usuario < ActiveRecord::Base
       user.save!
     end
   end
+
+  def semestre
+    return 0 if carrera.nil?
+    time = Time.new
+    s = (time.year - (generacion - 1)) * 2 + 1
+    s += 1 unless time.month > 6
+    return 0 unless carrera.semestres < s
+    s
+  end
 end
