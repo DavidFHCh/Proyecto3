@@ -12,11 +12,7 @@ class CarrerasController < ApplicationController
   # GET /carreras/1.json
   def show
     @title = @carrera.nombre
-    sips = SeImpartePara.where(clave_carrera: @carrera.id)
-    @materias = []
-    sips.each do |sip|
-      @materias << sip.materium
-    end
+    @materias = @carrera.materias
   end
 
   # GET /carreras/new
