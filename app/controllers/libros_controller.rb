@@ -5,14 +5,17 @@ class LibrosController < ApplicationController
   # GET /libros.json
   def index
     @title = "Libros"
-    @libros = Libro.all
+    @libros = []
+    Libro.all.each do |libro|
+      @libros << libro.isbndb
+    end
   end
 
   # GET /libros/1
   # GET /libros/1.json
   def show
     @title = @libro.titulo
-    @libro_isbn = ISBNdb::Query.find_book_by_isbn(@libro.codigo).first
+    @libro_isbn = @libro.isbndb
   end
 
   # GET /libros/new

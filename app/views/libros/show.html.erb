@@ -22,19 +22,26 @@
 	<h2>Información</h2>
       </header>
       <div class="w3-container">
-	<% if @libro_isbn.nil? %>
-	<p><strong>Título: </strong> <%= @libro.titulo %></p>
-	<p><strong>Autor(es): </strong> <%= @libro.autor %></p>
-	<p><strong>ISBN: </strong> <%= @libro.codigo %></p>
-	<% else %>
+	<% if @libro_isbn.title %>
 	<p><strong>Título: </strong> <%= @libro_isbn.title %></p>
+	<% end %>
+	<% if @libro_isbn.title_long %>
 	<p><strong>Título largo: </strong> <%= @libro_isbn.title_long %></p>
+	<% end %>
+	<% if @libro_isbn.authors_text %>
 	<p><strong>Autor(es): </strong> <%= @libro_isbn.authors_text %></p>
+	<% end %>
+	<% if @libro_isbn.publisher_text["__content__"] %>
 	<p><strong>Editorial: </strong> <%= @libro_isbn.publisher_text["__content__"] %></p>
-	<p><strong>ISBN: </strong> <%= @libro_isbn.isbn %></p>
-	<p><strong>ISBN13: </strong> <%= @libro_isbn.isbn13 %></p>
+	<% end %>
+	<% if @libro_isbn.isbn13 %>
+	<p><strong>ISBN: </strong> <%= @libro_isbn.isbn13 %></p>
+	<% end %>
+	<% if @libro_isbn %>
+	<p><strong>ISBN 10: </strong> <%= @libro_isbn.isbn %></p>
 	<% end %>
       </div>
+      <% if current_user %>
       <div class="w3-center">
         <button class="w3-btn w3-blue">Like</button>
       </div>
@@ -42,6 +49,7 @@
       <div class="w3-center">
         <button class="w3-btn w3-blue">Dislike</button>
       </div>
+      <% end %>
       <br>
       <footer class="w3-container w3-red">
 	<p>&nbsp;</p>
