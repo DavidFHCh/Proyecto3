@@ -28,9 +28,24 @@
 	<h2>Información</h2>
       </header>
       <div class="w3-container">
-	<p><strong>Título: </strong><%= libro.title %></p>
-	<p><strong>Autor: </strong><%= libro.authors_text %></p>
-	<p><strong>ISBN: </strong><%= libro.isbn13 %></p>
+	<% if libro.title %>
+        <p><strong>Título: </strong> <%= libro.title %></p>
+        <% end %>
+ 	<% if libro.title_long %>
+        <p><strong>Título largo: </strong> <%= libro.title_long %></p>
+        <% end %>
+ 	<% if libro.authors_text %>
+        <p><strong>Autor(es): </strong> <%= libro.authors_text %></p>
+        <% end %>
+ 	<% if libro.publisher_text["__content__"] %>
+        <p><strong>Editorial: </strong> <%= libro.publisher_text["__content__"] %></p>
+        <% end %>
+ 	<% if libro.isbn13 %>
+        <p><strong>ISBN: </strong> <%= libro.isbn13 %></p>
+        <% end %>
+ 	<% if libro.isbn %>
+        <p><strong>ISBN 10: </strong> <%= libro.isbn %></p>
+        <% end %>
       </div>
       <% if current_user %>
       <div class="w3-center">

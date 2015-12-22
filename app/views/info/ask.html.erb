@@ -1,22 +1,25 @@
+<br><br><br><br><br><br>
 <div class="w3-container w3-half w3-margin-top">
-  <form class="w3-container w3-card-4">
-    <h2 class="w3-text-theme">Info</h2>
-    <div class="w3-input-group">      
-      <input class="w3-input" type="text">
-      <label class="w3-label">Correo Electronico</label>
-    </div>
-    <label class="w3-checkbox">
-      <input type="radio" name="tipo" value="Estudiante" checked="checked">
-      <span class="w3-checkmark" onclick="document.getElementById('id1').style.display='block'"></span> Estudiante 
-    </label><br>
-    <label class="w3-checkbox">
-      <input type="radio" name="tipo" value="Profesor">
-      <span class="w3-checkmark" onclick="document.getElementById('id02').style.display='block'"></span> Profesor
-    </label>
-    <br><br>
-    <button class="w3-btn w3-theme">Guardar</button>
-    <br><br>
-  </form>
+  <div class="w3-container w3-card-4">
+    <%= form_for current_user do |f| %>
+      <h2 class="w3-text-theme">¿Eres estudiante o profesor?</h2>
+      <!--<div class="w3-input-group">      
+        <input class="w3-input" type="text">
+        <label class="w3-label">Correo Electronico</label>
+      </div>-->
+      <label class="w3-checkbox">
+        <%= f.radio_button :tipo, 1 %>
+        <span class="w3-checkmark" onclick="document.getElementById('id1').style.display='block'"></span> Estudiante 
+      </label><br>
+      <label class="w3-checkbox">
+        <%= f.radio_button :tipo, 2 %>
+        <span class="w3-checkmark" onclick="document.getElementById('id02').style.display='block'"></span> Profesor
+      </label>
+      <br><br>
+      <%= f.submit "Guardar", class: "w3-btn w3-theme" %>
+      <br><br>
+    <% end %>
+  </div>
 </div>
 
 <div id="id1" class="w3-modal">
