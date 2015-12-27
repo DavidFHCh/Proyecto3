@@ -12,6 +12,8 @@ class MateriaController < ApplicationController
   # GET /materia/1.json
   def show
     @title = @materium.nombre
+    @ranking = Libro.all
+    #@ranking = @materium.ranking
   end
 
   # GET /materia/new
