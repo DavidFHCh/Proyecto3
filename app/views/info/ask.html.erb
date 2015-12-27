@@ -2,71 +2,70 @@
 <div class="w3-container w3-half w3-margin-top">
   <div class="w3-container w3-card-4">
     <%= form_for current_user do |f| %>
-      <h2 class="w3-text-theme">¿Eres estudiante o profesor?</h2>
-      <label class="w3-checkbox">
-        <%= f.radio_button :tipo, 1 %>
-        <span class="w3-checkmark" onclick="document.getElementById('id1').style.display='block'"></span> Estudiante 
-      </label><br>
-      <label class="w3-checkbox">
-        <%= f.radio_button :tipo, 2 %>
-        <span class="w3-checkmark" onclick="document.getElementById('id02').style.display='block'"></span> Profesor
-      </label>
-      <br><br>
-      <%= f.submit "Guardar", class: "w3-btn w3-theme" %>
-      <br><br>
+    <h2 class="w3-text-theme">¿Eres estudiante o profesor?</h2>
+    <label class="w3-checkbox">
+      <%= f.radio_button :tipo, 1 %>
+      <span class="w3-checkmark" onclick="document.getElementById('id1').style.display='block'"></span> Estudiante 
+    </label>
+
+    <div id="id1" class="w3-modal">
+      <div class="w3-modal-content">
+	<header class="w3-container w3-red"> 
+	  <span onclick="document.getElementById('id1').style.display='none'" 
+		class="w3-closebtn">×</span>
+	  <h2>Información de Estudiante</h2>
+	</header>
+	<div class="w3-container">
+	  <div class="w3-input-group">      
+	    <input class="w3-input" type="text">
+	    <label class="w3-label">Carrera</label>
+	  </div>
+	  <div class="w3-input-group">      
+            <%= f.number_field :generacion, {step: 1, max: @max_year} %>
+	    <label class="w3-label">Generación</label>
+	  </div>
+	</div>
+	<div class="w3-center">
+	  <%= f.submit "Listo", class: "w3-btn w3-blue" %>
+	</div>
+	<br>
+	<footer class="w3-container w3-red">
+	  <p>&nbsp;</p>
+	</footer>
+      </div>
+    </div>
+    
+    <br>
+    <label class="w3-checkbox">
+      <%= f.radio_button :tipo, 2 %>
+      <span class="w3-checkmark" onclick="document.getElementById('id02').style.display='block'"></span> Profesor
+    </label>
+
+    <div id="id02" class="w3-modal">
+      <div class="w3-modal-content">
+	<header class="w3-container w3-red"> 
+	  <span onclick="document.getElementById('id02').style.display='none'" 
+		class="w3-closebtn">×</span>
+	  <h2>Información de Profesor</h2>
+	</header>
+	<div class="w3-container">
+	  <div class="w3-input-group">      
+	    <input class="w3-input" type="text">
+	    <label class="w3-label">Nombre</label>
+	    <p>Se enviara un correo para verificar que es Profesor.</p>
+	  </div>
+	</div>
+	<div class="w3-center">
+	  <%= f.submit "Listo", class: "w3-btn w3-blue" %>
+	</div>
+	<br>
+	<footer class="w3-container w3-red">
+	  <p>&nbsp;</p>
+	</footer>
+      </div>
+    </div>
+    
+    <br><br>
     <% end %>
-  </div>
-</div>
-
-<%= form_for current_user do |f| %>
-<div id="id1" class="w3-modal">
-  <div class="w3-modal-content">
-    <header class="w3-container w3-red"> 
-      <span onclick="document.getElementById('id1').style.display='none'" 
-	    class="w3-closebtn">×</span>
-      <h2>Información de Estudiante</h2>
-    </header>
-    <div class="w3-container">
-      <div class="w3-input-group">      
-	<input class="w3-input" type="text">
-	<label class="w3-label">Carrera</label>
-      </div>
-      <div class="w3-input-group">      
-        <%= f.number_field :generacion, {step: 1} %>
-	<label class="w3-label">Generación</label>
-      </div>
-    </div>
-    <div class="w3-center">
-      <%= f.submit "Listo", class: "w3-btn w3-blue" %>
-    </div>
-    <br>
-    <footer class="w3-container w3-red">
-      <p>&nbsp;</p>
-    </footer>
-  </div>
-</div>
-<% end %>
-
-<div id="id02" class="w3-modal">
-  <div class="w3-modal-content">
-    <header class="w3-container w3-red"> 
-      <span onclick="document.getElementById('id02').style.display='none'" 
-	    class="w3-closebtn">×</span>
-      <h2>Información de Profesor</h2>
-    </header>
-    <div class="w3-container">
-      <div class="w3-input-group">      
-	<input class="w3-input" type="text">
-	<label class="w3-label">Nombre</label>
-	<p>Se enviara un correo para verificar que es Profesor.</p>
-      </div>
-    </div>
-    <div class="w3-center">
-      <button class="w3-btn w3-blue">Listo</button>
-    </div>
-    <br>
-    <footer class="w3-container w3-red">
-      <p>&nbsp;</p>
-    </footer>
   </div>
 </div>
