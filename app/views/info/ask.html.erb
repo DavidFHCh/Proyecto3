@@ -16,12 +16,11 @@
 	  <h2>Información de Estudiante</h2>
 	</header>
 	<div class="w3-container">
-	  <div class="w3-input-group">      
-	    <input class="w3-input" type="text">
-	    <label class="w3-label">Carrera</label>
+	  <div class="w3-input-group">
+	    <%= f.select :carrera, @carreras, { class: "w3-select" } %>
 	  </div>
 	  <div class="w3-input-group">      
-            <%= f.number_field :generacion, {step: 1, max: @max_year} %>
+            <%= f.number_field :generacion, { step: 1, max: @max_year, class: "w3-input" } %>
 	    <label class="w3-label">Generación</label>
 	  </div>
 	</div>
