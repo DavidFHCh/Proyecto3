@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
-  resources :sessions, only: [:create, :destroy]
-  resources :home, only: [:show]
+  resources :sessions, only: [ :create, :destroy]
+  resources :home, only: [ :show]
 
   root to: 'home#show'
   get 'about', to: 'about#show', as: 'about'
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'libros/:id', to: 'libros#show', as: 'libro'
   get 'info', to: 'info#ask', as: 'info'
   
-  #resources :usuarios
+  resources :usuarios, only: [ :create, :update, :destroy]
   #resources :se_recomienda_paras
   #resources :se_imparte_paras
   #resources :reporte_links

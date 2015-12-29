@@ -19,6 +19,7 @@ class Usuario < ActiveRecord::Base
       usuario.password = ""
       usuario.save!
     end
+    usuario
   end
   
   def semestre

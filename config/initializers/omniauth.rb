@@ -7,7 +7,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
              scope: 'userinfo.email, userinfo.profile',
              hd: 'ciencias.unam.mx',
              access_type: 'online',
-             prompt: 'select_account',
              client_options: {
                ssl: {
                  ca_file: Rails.root.join('cacert.pem').to_s
