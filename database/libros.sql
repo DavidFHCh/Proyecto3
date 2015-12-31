@@ -25,31 +25,6 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 SET search_path = public, pg_catalog;
 
---
--- Name: merge_libros(integer, text, text, text); Type: FUNCTION; Schema: public; Owner: postgres
---
-
-CREATE FUNCTION merge_libros(id integer, c text, t text, a text) RETURNS void
-    LANGUAGE plpgsql
-    AS $$
-BEGIN
-    LOOP
-        UPDATE libros SET codigo = c, titulo = t, autor = a WHERE id_libro = id;
-        IF found THEN
-            RETURN;
-        END IF;
-        BEGIN
-            INSERT INTO libros(codigo , titulo, autor) VALUES (c, t, a);
-            RETURN;
-        EXCEPTION WHEN unique_violation THEN
-        END;
-    END LOOP;
-END;
-$$;
-
-
-ALTER FUNCTION public.merge_libros(id integer, c text, t text, a text) OWNER TO postgres;
-
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -475,15 +450,6 @@ ALTER TABLE ONLY usuarios ALTER COLUMN id_usuario SET DEFAULT nextval('usuarios_
 --
 
 COPY carreras (clave, nombre, semestres, facultad) FROM stdin;
-101	Actuaría	8	3
-104	Ciencias de la Computación	8	3
-106	Física	9	3
-122	Matemáticas	8	3
-127	Ciencias de la Tierra	8	3
-134	Física Biomédica	8	3
-201	Biología	8	3
-217	Manejo Sustentable de Zonas Costeras	8	3
-501	Técnico	5	3
 \.
 
 
@@ -499,16 +465,6 @@ SELECT pg_catalog.setval('carreras_clave_seq', 1, false);
 --
 
 COPY facultades (num_plantel, nombre) FROM stdin;
-1	Facultad de Arquitectura
-2	Facultad de Artes y Diseño
-3	Facultad de Ciencias
-4	Facultad de Ciencias Políticas y Sociales
-5	Facultad de Química
-6	Facultad de Contaduría y Administración
-7	Facultad de Derecho
-105	Facultad de Estudios Superiores Cuautitlán (Química)
-208	Facultad de Estudios Superiores Acatlán (Economía)
-319	Facultad de Estudios Superiores Iztacala (Psicología)
 \.
 
 
@@ -524,8 +480,6 @@ SELECT pg_catalog.setval('facultades_num_plantel_seq', 1, false);
 --
 
 COPY libros (id_libro, codigo, titulo, autor) FROM stdin;
-97	9780133153910	A First Course In Probability	Sheldon M. Ross
-98	9780132397346	Linear Algebra	Lawrence Spence, Arnold J Insel, Stephen H Friedberg
 \.
 
 
@@ -533,7 +487,7 @@ COPY libros (id_libro, codigo, titulo, autor) FROM stdin;
 -- Name: libros_id_libro_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('libros_id_libro_seq', 98, true);
+SELECT pg_catalog.setval('libros_id_libro_seq', 2756, true);
 
 
 --
@@ -541,9 +495,6 @@ SELECT pg_catalog.setval('libros_id_libro_seq', 98, true);
 --
 
 COPY links (id_link, url) FROM stdin;
-1	https://www.youtube.com/user/julioprofe/videos
-2	https://www.youtube.com/watch?v=FUZzUalCxlo
-3	https://es.wikipedia.org/wiki/Wikipedia:Portada
 \.
 
 
@@ -630,7 +581,7 @@ COPY materias (clave, nombre, semestre, creditos) FROM stdin;
 1534	Fundamentos de Bases de Datos	5	10
 1535	Inglés V	5	4
 1536	Lenguajes de Programación	5	10
-575	Ingeneiería de Software	6	10
+575	Ingeniería de Software	6	10
 608	Inteligencia Artificial	6	10
 713	Sistemas Operativos	6	10
 269	Complejidad Computacional	7	10
@@ -850,292 +801,6 @@ SELECT pg_catalog.setval('reporte_link_id_reporte_seq', 1, false);
 --
 
 COPY se_imparte_para (clave_materia, clave_carrera) FROM stdin;
-7	101
-7	104
-7	122
-91	101
-91	106
-91	122
-244	101
-244	106
-244	122
-1135	101
-1308	101
-8	101
-8	104
-8	122
-92	101
-92	106
-92	122
-245	101
-245	106
-245	122
-1208	101
-1235	101
-1236	101
-5	101
-5	104
-5	106
-5	122
-93	101
-93	106
-93	122
-625	101
-625	104
-625	122
-1108	101
-1335	101
-1336	101
-94	101
-94	106
-94	122
-162	101
-162	106
-162	122
-626	101
-626	104
-626	122
-1408	101
-1436	101
-1506	101
-9	101
-9	122
-630	101
-1508	101
-1539	101
-1540	101
-1541	101
-1636	101
-1637	101
-1638	101
-1639	101
-1640	101
-1707	101
-1708	101
-1738	101
-1739	101
-1740	101
-1807	101
-1808	101
-1832	101
-1123	104
-1124	104
-1125	104
-1126	104
-422	104
-1222	104
-1123	104
-1126	104
-1322	104
-1323	104
-1326	104
-1425	104
-1426	104
-1427	104
-1428	104
-1429	104
-1532	104
-1533	104
-1534	104
-1535	104
-1536	104
-575	104
-608	104
-713	104
-269	104
-714	104
-817	104
-1827	104
-1828	104
-1829	104
-100	106
-102	106
-104	106
-227	106
-228	106
-228	127
-228	134
-228	501
-302	106
-302	127
-302	134
-302	501
-303	106
-419	106
-419	134
-419	501
-420	106
-582	106
-582	134
-583	106
-584	106
-584	134
-840	106
-840	122
-610	106
-611	106
-612	106
-612	127
-718	106
-609	106
-609	134
-715	106
-716	106
-717	106
-717	134
-827	106
-827	127
-828	106
-829	106
-830	106
-354	106
-354	122
-354	201
-900	106
-901	106
-249	122
-6	122
-1	122
-10	122
-1115	127
-1116	127
-1117	127
-1118	127
-1119	127
-1215	127
-1216	127
-1218	127
-1219	127
-1315	127
-1317	127
-1318	127
-1319	127
-1415	127
-1416	127
-1417	127
-1418	127
-1419	127
-1515	127
-1516	127
-1819	127
-650	127
-1130	134
-1130	501
-1131	134
-1131	501
-1132	134
-1132	501
-1133	134
-1133	501
-1134	134
-1134	501
-1230	134
-1230	501
-1231	134
-1231	501
-1232	134
-1232	501
-1233	134
-1233	501
-1234	134
-1234	501
-1330	134
-1330	501
-1331	134
-1331	501
-1332	134
-1332	501
-1333	134
-1333	501
-1334	134
-1334	501
-1430	134
-1430	501
-1431	134
-1431	501
-1432	134
-1432	501
-1434	134
-1434	501
-1435	134
-1435	501
-1528	134
-1529	134
-1530	134
-1531	134
-1630	134
-1632	134
-1633	134
-1634	134
-1635	134
-1731	134
-1732	134
-1830	134
-1831	134
-1100	201
-1101	201
-1102	201
-1103	201
-1104	201
-1200	201
-1201	201
-1202	201
-1203	201
-1204	201
-1300	201
-1301	201
-1302	201
-1304	201
-1402	201
-1303	201
-1400	201
-1401	201
-1403	201
-1602	201
-1404	201
-1405	201
-1500	201
-1502	201
-1503	201
-1501	201
-1600	201
-1603	201
-1601	201
-1700	201
-1800	201
-1110	217
-1111	217
-1113	217
-1114	217
-1214	217
-1210	217
-1212	217
-1213	217
-1314	217
-1412	217
-1310	217
-1311	217
-1312	217
-1313	217
-1413	217
-1112	217
-1211	217
-1410	217
-1411	217
-1414	217
-1510	217
-1511	217
-1512	217
-1513	217
-1514	217
-1610	217
-1611	217
-1612	217
-1614	217
-1615	217
-1702	217
-1802	217
-1538	501
 \.
 
 
@@ -1152,7 +817,6 @@ COPY se_recomienda_para (libro, clave_materia, recomendaciones, votos) FROM stdi
 --
 
 COPY usuarios (id_usuario, correo, password, nombre, facultad, carrera, generacion, tipo) FROM stdin;
-4	yo@ciencias.unam.mx	mipassword	Mi Nombre	3	104	2015	1
 \.
 
 
