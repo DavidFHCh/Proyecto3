@@ -1,6 +1,8 @@
 class Usuario < ActiveRecord::Base
   belongs_to :facultade, class_name: "Facultade", foreign_key: "facultad"
   belongs_to :_carrera, class_name: "Carrera", foreign_key: "carrera"
+  has_many :votos, class_name: "Voto", foreign_key: "usuario_id"
+  has_many :libros, class_name: "Libro", through: :votos
 
   def self.from_omniauth(auth)
     usuario = where(provider: auth.provider, uid: auth.uid).first

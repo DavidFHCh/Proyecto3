@@ -6,12 +6,11 @@ class Materium < ActiveRecord::Base
 
   def ranking
     srp = se_recomienda_paras
-    if !srp.empty?
-      srp.sort! do |x,y|
-        comparacion = x.votos <=> y.votos
-        comparacion unless comparacion == 0
-        y.recomendaciones <=> x.recomendaciones
-      end
+    srp if srp.empty?
+    srp.sort! do |x,y|
+      comparacion = x.votos <=> y.votos
+      comparacion unless comparacion == 0
+      y.recomendaciones <=> x.recomendaciones
     end
     libros = []
     srp.each do |x|

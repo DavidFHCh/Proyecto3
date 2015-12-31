@@ -1,6 +1,6 @@
 <br><br><br><br>
-<% if @ranking %>
 <div class="w3-row-padding">
+  <% if @ranking %>
   <div class="w3-half">
     <div class="w3-card white">
       <div class="w3-container w3-red">
@@ -53,12 +53,16 @@
         <p><strong>ISBN 10: </strong> <%= libro_isbn.isbn %></p>
         <% end %>
       </div>
-      <!--< if current_user >-->
+      <% if current_user %>
       <div class="w3-center">
-        <button class="w3-btn w3-blue">Like</button>
+        <% if @votos.include? libro %>
+        <button class="w3-btn w3-blue">Ya no lo recomiendo</button>
+	<% else %>
+	<button class="w3-btn w3-blue">Lo recomiendo</button>
+	<% end %>
       </div>
       <br>
-      <!--< end >-->
+      <% end %>
       <br>
       <footer class="w3-container w3-red">
 	<p>&nbsp;</p>

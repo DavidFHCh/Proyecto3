@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208235819) do
+ActiveRecord::Schema.define(version: 20151231204650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,11 @@ ActiveRecord::Schema.define(version: 20151208235819) do
   end
 
   add_index "usuarios", ["correo"], name: "usuarios_correo_key", unique: true, using: :btree
+
+  create_table "votos", force: :cascade do |t|
+    t.integer "usuario_id"
+    t.integer "libro_id"
+  end
 
   add_foreign_key "carreras", "facultades", column: "facultad", primary_key: "num_plantel", name: "carreras_facultad_fkey"
   add_foreign_key "material_recomenadado", "links", column: "link", primary_key: "id_link", name: "material_recomenadado_link_fkey"

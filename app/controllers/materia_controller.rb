@@ -14,6 +14,9 @@ class MateriaController < ApplicationController
     @title = @materium.nombre
     @ranking = Libro.all
     #@ranking = @materium.ranking
+    if current_user
+      @votos = current_user.libros
+    end
   end
 
   # GET /materia/new

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :votos
   #Google authentication
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
