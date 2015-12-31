@@ -1,0 +1,27 @@
+<h1>Listing recomendacion_links</h1>
+
+<table>
+  <tr>
+    <th>Url</th>
+    <th>Usuario</th>
+    <th>Clave materia</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @recomendacion_links.each do |recomendacion_link| %>
+  <tr>
+    <td><%= recomendacion_link.url %></td>
+    <td><%= recomendacion_link.usuario %></td>
+    <td><%= recomendacion_link.clave_materia %></td>
+    <td><%= link_to 'Show', recomendacion_link %></td>
+    <td><%= link_to 'Edit', edit_recomendacion_link_path(recomendacion_link) %></td>
+    <td><%= link_to 'Destroy', recomendacion_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Recomendacion link', new_recomendacion_link_path %>

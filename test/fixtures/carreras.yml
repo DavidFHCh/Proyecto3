@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyText
+  semestres: 1
+  facultad: 1
+
+two:
+  nombre: MyText
+  semestres: 1
+  facultad: 1

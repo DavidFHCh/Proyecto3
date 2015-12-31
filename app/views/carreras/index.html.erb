@@ -1,0 +1,21 @@
+<br><br><br><br>
+<div class="w3-row-padding">
+  <div class="w3-half">
+    <div class="w3-card white">
+      <div class="w3-container w3-red">
+	<h1>Carreras</h1>
+      </div>
+      <ul class="w3-ul w3-border-top">
+	<% @carreras.each do |carrera| %>
+	<li>
+	  <%= link_to carrera.nombre, carrera %>
+	</li>
+	<% end %>	
+      </ul>
+    </div>
+  </div>
+  <br>
+  
+  <%= render 'layouts/searchbox' %>
+</div>
+<br> <br> <br>

@@ -16,3 +16,9 @@
 
 # Ignore Emacs files
 **/*~
+
+# Database config
+config/database.yml
+
+# ISBNdb config file
+config/isbndb.yml

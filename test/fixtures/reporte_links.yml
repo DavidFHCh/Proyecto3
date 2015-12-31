@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: 1
+  link: 1
+
+two:
+  usuario: 1
+  link: 1

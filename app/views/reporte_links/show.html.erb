@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @reporte_link.usuario %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= @reporte_link.link %>
+</p>
+
+
+<%= link_to 'Edit', edit_reporte_link_path(@reporte_link) %> |
+<%= link_to 'Back', reporte_links_path %>

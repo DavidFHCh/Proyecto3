@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Clave materia:</b>
+  <%= @material_recomendado.clave_materia %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= @material_recomendado.link %>
+</p>
+
+
+<%= link_to 'Edit', edit_material_recomendado_path(@material_recomendado) %> |
+<%= link_to 'Back', material_recomendados_path %>

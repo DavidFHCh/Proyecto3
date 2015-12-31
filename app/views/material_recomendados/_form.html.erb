@@ -1,0 +1,25 @@
+<%= form_for(@material_recomendado) do |f| %>
+  <% if @material_recomendado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@material_recomendado.errors.count, "error") %> prohibited this material_recomendado from being saved:</h2>
+
+      <ul>
+      <% @material_recomendado.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :clave_materia %><br />
+    <%= f.number_field :clave_materia %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br />
+    <%= f.number_field :link %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

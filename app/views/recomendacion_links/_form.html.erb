@@ -1,0 +1,29 @@
+<%= form_for(@recomendacion_link) do |f| %>
+  <% if @recomendacion_link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recomendacion_link.errors.count, "error") %> prohibited this recomendacion_link from being saved:</h2>
+
+      <ul>
+      <% @recomendacion_link.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_area :url %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario %><br />
+    <%= f.number_field :usuario %>
+  </div>
+  <div class="field">
+    <%= f.label :clave_materia %><br />
+    <%= f.number_field :clave_materia %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
