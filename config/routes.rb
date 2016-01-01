@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :votos
   #Google authentication
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
@@ -9,17 +8,14 @@ Rails.application.routes.draw do
 
   root to: 'home#show'
   get 'about', to: 'about#show', as: 'about'
-  get 'facultades', to: 'facultades#index', as: 'facultades'
-  get 'facultades/:id', to: 'facultades#show', as: 'facultade'
   get 'carreras', to: 'carreras#index', as: 'carreras'
   get 'carreras/:id', to: 'carreras#show', as: 'carrera'
   get 'materias', to: 'materia#index', as: 'materias'
   get 'materias/:id', to: 'materia#show', as: 'materium'
-  get 'libros', to: 'libros#index', as: 'libros'
-  get 'libros/:id', to: 'libros#show', as: 'libro'
   get 'info', to: 'info#ask', as: 'info'
   
   resources :usuarios, only: [ :create, :update, :destroy]
+  resources :votos, only: [ :create, :update]
   #resources :se_recomienda_paras
   #resources :se_imparte_paras
   #resources :reporte_links

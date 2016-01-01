@@ -12,7 +12,7 @@ class CarrerasController < ApplicationController
   # GET /carreras/1.json
   def show
     @title = @carrera.nombre
-    @materias = @carrera.materias
+    @materias = @carrera.materias_ordenadas
   end
 
   # GET /carreras/new

@@ -12,8 +12,7 @@ class MateriaController < ApplicationController
   # GET /materia/1.json
   def show
     @title = @materium.nombre
-    @ranking = Libro.all
-    #@ranking = @materium.ranking
+    @ranking = @materium.ranking
     if current_user
       @votos = current_user.libros
     end

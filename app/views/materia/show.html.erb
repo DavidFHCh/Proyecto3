@@ -34,6 +34,7 @@
 	<h2>Información</h2>
       </header>
       <div class="w3-container">
+        <% if libro_isbn %>
 	<% if libro_isbn.title %>
         <p><strong>Título: </strong> <%= libro_isbn.title %></p>
         <% end %>
@@ -51,7 +52,12 @@
         <% end %>
  	<% if libro_isbn.isbn %>
         <p><strong>ISBN 10: </strong> <%= libro_isbn.isbn %></p>
-        <% end %>
+	<% end %>
+	<% else %>
+        <p><strong>Título: </strong> <%= libro.titulo %></p>
+        <p><strong>Autor(es): </strong> <%= libro.autor %></p>
+        <p><strong>ISBN: </strong> <%= libro.codigo %></p>
+	<% end %>
       </div>
       <% if current_user %>
       <div class="w3-center">

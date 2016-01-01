@@ -18,6 +18,7 @@
 	<div class="w3-container">
 	  <div class="w3-input-group">
 	    <%= f.select :carrera, @carreras, { class: "w3-select" } %>
+	    <label class="w3-label">Carrera</label>
 	  </div>
 	  <div class="w3-input-group">      
             <%= f.number_field :generacion, { step: 1, max: @max_year, class: "w3-input" } %>
@@ -48,10 +49,17 @@
 	  <h2>Información de Profesor</h2>
 	</header>
 	<div class="w3-container">
-	  <div class="w3-input-group">      
-	    <input class="w3-input" type="text">
-	    <label class="w3-label">Nombre</label>
-	    <p>Se enviara un correo para verificar que es Profesor.</p>
+	  <div class="w3-input-group">
+	    <%= f.text_field :nombre, class: "w3-input" %>
+	    <label class="w3-label">Nombre, ¿Cómo quiere que nos dirijamos a usted?</label>
+	  </div>
+	  <div class="w3-input-group">
+	    <%= f.select :carrera, @carreras, { class: "w3-select" } %>
+	    <label class="w3-label">Carrera</label>
+	  </div>
+	  <div class="w3-input-group">
+	    <%= f.number_field :generacion, { step: 1, max: @max_year, class: "w3-input" } %>
+	    <label class="w3-label">Generación</label>
 	  </div>
 	</div>
 	<div class="w3-center">
